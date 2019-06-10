@@ -15,6 +15,8 @@ after = None
 
 followers_processed = 0
 
+print('Start getting followers.')
+
 while True:
     after_value = f', "after": "{after}"' if after else ''
     variables = f'{{"id":"{sys.argv[1]}","include_reel":true,"fetch_mutual":false,"first":50{after_value}}}'
@@ -44,7 +46,7 @@ while True:
     next_page = data['data']['user']['edge_followed_by']['page_info']['has_next_page']
 
     if not next_page:
-        print('Finish :)')
+        print('Finish getting followers:)')
         break
 
     index += 1

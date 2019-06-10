@@ -6,6 +6,8 @@ from pprint import pprint
 files = glob.glob('json_followers/*.json')
 followers = {}
 
+print('Start parsing followers.')
+
 for f in files:
     with open(f, 'r') as f:
         data = json.load(f)
@@ -19,4 +21,4 @@ for f in files:
 with open('followers.json', 'w') as f:
     json.dump(followers, f)
 
-print('Finish :)')
+print('Finish parsing followers:)')
